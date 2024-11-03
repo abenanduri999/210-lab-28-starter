@@ -79,7 +79,6 @@ int main() {
                 shuffle_goat(trip);
                 break;
             case 7: 
-                cout<<"The sum of all ages is:";
                 sumAge_goat(trip); 
                 break;
             default:
@@ -189,7 +188,7 @@ void shuffle_goat(list<Goat> &trip)
    
 }
 
-void sumOf_goat(list<Goat> trip)
+void sumAge_goat(list<Goat> trip)
 {
     vector<int> temp; 
     for (auto tmp : trip)
@@ -197,5 +196,6 @@ void sumOf_goat(list<Goat> trip)
         temp.push_back(tmp.get_age());
     }
     int sum = accumulate(temp.begin(), temp.end(), 0); 
-    cout<<sum<<endl; 
+    cout<<"The sum of all ages is: "<<sum<<endl; 
+    
 }
