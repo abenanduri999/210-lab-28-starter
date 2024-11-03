@@ -93,6 +93,10 @@ int main() {
                 cout<<"Checking to see if there are goats older than 10 years of age.\n";
                 anyOf_goat(trip); 
                 break;
+            case 10: 
+                cout<<"Copying into new list and displaying it\n"; 
+                copy_goat(trip); 
+                break; 
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -238,5 +242,7 @@ void anyOf_goat(list<Goat> trip)
 
 void copy_goat(list<Goat> trip)
 {
-    
+    list<Goat> trip2(trip.size()); 
+    copy(trip.begin(), trip.end(), trip2.begin()); 
+    display_trip(trip2); 
 }
