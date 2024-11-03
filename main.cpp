@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <list>
 #include <algorithm>
+#include <random>
 #include "Goat.h"
 using namespace std;
 
@@ -62,10 +63,14 @@ int main() {
                 display_trip(trip);
                 break;
             case 4: 
-                cout<< "List of goats have been reversed./n"; 
+                cout<< "List of goats have been reversed.\n"; 
                 reverse_goat(trip); 
+                break;
             case 5: 
-                cout<<"";
+                cout <<"Goats have been shuffled.\n";
+                shuffle_goat(trip); 
+                break;
+            
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -85,6 +90,11 @@ int main_menu() {
     cout << "[4] Reverse goats\n"; 
     cout << "[5] Shuffle goats\n"; 
     cout << "[6] ";
+    cout << "[7] ";
+    cout << "[8] ";
+    cout << "[9] ";
+    cout << "[10] ";
+    cout << "[11] ";
     cout << "[12] Quit\n";
     cout << "Choice --> ";
     int choice;
@@ -146,6 +156,6 @@ void reverse_goat(list<Goat> &trip)
 
 void shuffle_goat(list<Goat> &trip)
 {
-    shuffle(trip.begin(), trip.end(), default_random_engine()); 
+  cout<<"HI"<<endl;
    
 }
