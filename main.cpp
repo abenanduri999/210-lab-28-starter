@@ -100,6 +100,7 @@ int main() {
                 break; 
             case 11: 
                 cout<<"Adding 1 to each age\n"; 
+                forEach_goat(trip); 
                 break;   
             default:
                 cout << "Invalid selection.\n";
@@ -253,5 +254,6 @@ void copy_goat(list<Goat> trip)
 
 void forEach_goat(list<Goat> trip)
 {
-
+    for_each(trip.begin(), trip.end(), [](Goat& temp){ temp.set_age(temp.get_age() + 1);});  
+    display_trip(trip); 
 }
