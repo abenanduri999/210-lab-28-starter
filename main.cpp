@@ -13,6 +13,7 @@ void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 void reverse_goat(list<Goat> &trip); 
+void shuffle_goat(list<Goat> &trip); 
 int main_menu();
 
 int main() {
@@ -46,7 +47,7 @@ int main() {
     
     // Goat Manager 3001 Engine
     int sel = main_menu();
-    while (sel != 5) {
+    while (sel != 12) {
         switch (sel) {
             case 1:
                 cout << "Adding a goat.\n";
@@ -63,6 +64,8 @@ int main() {
             case 4: 
                 cout<< "List of goats have been reversed./n"; 
                 reverse_goat(trip); 
+            case 5: 
+                cout<<"";
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -86,7 +89,7 @@ int main_menu() {
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 4) {
+    while (choice < 1 || choice > 12) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
@@ -139,6 +142,10 @@ void reverse_goat(list<Goat> &trip)
 {
     reverse(trip.begin(), trip.end()); 
     display_trip(trip); 
+}
 
-
+void shuffle_goat(list<Goat> &trip)
+{
+    shuffle(trip.begin(), trip.end(), default_random_engine()); 
+   
 }
