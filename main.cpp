@@ -23,6 +23,7 @@ void sumAge_goat(list<Goat> trip);
 void merge_goat(list<Goat> &trip);
 void anyOf_goat(list<Goat> trip); 
 void copy_goat(list<Goat> trip); 
+void forEach_goat(list<Goat> trip);
 int main_menu();
 
 int main() {
@@ -97,6 +98,9 @@ int main() {
                 cout<<"Copying into new list and displaying it\n"; 
                 copy_goat(trip); 
                 break; 
+            case 11: 
+                cout<<"Adding 1 to each age\n"; 
+                break;   
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -120,7 +124,7 @@ int main_menu() {
     cout << "[8] Merge list with another.\n";
     cout << "[9] Are any goats older than 10 years?\n";
     cout << "[10] Copy the list into a new list, and display it\n";
-    cout << "[11] ";
+    cout << "[11] How old will the goats be after 1 year?\n";
     cout << "[12] Quit\n";
     cout << "Choice --> ";
     int choice;
@@ -245,4 +249,9 @@ void copy_goat(list<Goat> trip)
     list<Goat> trip2(trip.size()); 
     copy(trip.begin(), trip.end(), trip2.begin()); 
     display_trip(trip2); 
+}
+
+void forEach_goat(list<Goat> trip)
+{
+
 }
