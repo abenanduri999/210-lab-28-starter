@@ -22,6 +22,7 @@ void shuffle_goat(list<Goat> &trip);
 void sumAge_goat(list<Goat> trip); 
 void merge_goat(list<Goat> &trip);
 void anyOf_goat(list<Goat> trip); 
+void copy_goat(list<Goat> trip); 
 int main_menu();
 
 int main() {
@@ -114,7 +115,7 @@ int main_menu() {
     cout << "[7] Sum of all the ages\n";
     cout << "[8] Merge list with another.\n";
     cout << "[9] Are any goats older than 10 years?\n";
-    cout << "[10] ";
+    cout << "[10] Copy the list into a new list, and display it\n";
     cout << "[11] ";
     cout << "[12] Quit\n";
     cout << "Choice --> ";
@@ -227,6 +228,15 @@ void merge_goat(list<Goat> &trip)
 void anyOf_goat(list<Goat> trip)
 {
     vector<int>temp; 
-    bool age = any_of(trip.begin(), trip.end(), [](int a) {return a > 10;} ); 
+    for(auto e : trip)
+    {
+        temp.push_back(e.get_age());
+    }
+    bool age = any_of(temp.begin(), temp.end(), [](int a) {return a > 10;} ); 
     cout<<(age ? "Yes" : "No")<<endl; 
+}
+
+void copy_goat(list<Goat> trip)
+{
+    
 }
