@@ -19,6 +19,7 @@ void reverse_goat(list<Goat> &trip);
 void clear_goat(list<Goat> &trip); 
 void shuffle_goat(list<Goat> &trip); 
 void sumAge_goat(list<Goat> trip); 
+void merge_goat(list<Goat> &trip);
 int main_menu();
 
 int main() {
@@ -81,6 +82,10 @@ int main() {
             case 7: 
                 sumAge_goat(trip); 
                 break;
+            case 8: 
+                cout<<"The new merged list is:\n";
+                merge_goat(trip); 
+                break; 
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -101,7 +106,7 @@ int main_menu() {
     cout << "[5] Clear goats\n"; 
     cout << "[6] Shuffle goats\n";
     cout << "[7] Sum of all the ages\n";
-    cout << "[8] ";
+    cout << "[8] Merge list with another.\n";
     cout << "[9] ";
     cout << "[10] ";
     cout << "[11] ";
@@ -198,4 +203,17 @@ void sumAge_goat(list<Goat> trip)
     int sum = accumulate(temp.begin(), temp.end(), 0); 
     cout<<"The sum of all ages is: "<<sum<<endl; 
     
+}
+
+void merge_goat(list<Goat> &trip)
+{
+    Goat goat1("Bob", 5, "cyan"); 
+    Goat goat2("Pavel", 8, "viridian"); 
+    list<Goat> newTrip; 
+    newTrip.push_back(goat1); 
+    newTrip.push_back(goat2); 
+
+    list<Goat> mergedList(trip.size() + newTrip.size());
+    merge(trip.begin(), trip.end(), newTrip.begin(), newTrip.end(), mergedList.begin()); 
+    display_trip(mergedList); 
 }
