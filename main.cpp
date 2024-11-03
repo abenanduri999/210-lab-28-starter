@@ -74,6 +74,9 @@ int main_menu() {
     cout << "[1] Add a goat\n";
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
+    cout << "[4] Reverse goats\n"; 
+    cout << "[5] Shuffle goats\n"; 
+    cout << "[6] "
     cout << "[4] Quit\n";
     cout << "Choice --> ";
     int choice;
