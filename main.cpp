@@ -4,6 +4,7 @@
 #include <list>
 #include <vector>
 #include <algorithm>
+#include <numeric>
 #include <random>
 #include "Goat.h"
 using namespace std;
@@ -76,6 +77,10 @@ int main() {
             case 6: 
                 cout<<"Goats have been shuffled.\n"; 
                 shuffle_goat(trip);
+                break;
+            case 7: 
+                cout<<"The sum of all ages is:";
+                sumAge_goat(trip); 
                 break;
             default:
                 cout << "Invalid selection.\n";
@@ -186,10 +191,11 @@ void shuffle_goat(list<Goat> &trip)
 
 void sumOf_goat(list<Goat> trip)
 {
-    int sum = 0;
-    for(auto tmp : trip )
+    vector<int> temp; 
+    for (auto tmp : trip)
     {
-        sum = sum + tmp.get_age(); 
+        temp.push_back(tmp.get_age());
     }
-    cout<<"The sum of all the ages is: "<<sum<<endl; 
+    int sum = accumulate(temp.begin(), temp.end(), 0); 
+    cout<<sum<<endl; 
 }
