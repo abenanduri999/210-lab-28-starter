@@ -15,6 +15,7 @@ void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 void reverse_goat(list<Goat> &trip); 
+void clear_goat(list<Goat> &trip); 
 void shuffle_goat(list<Goat> &trip); 
 int main_menu();
 
@@ -68,10 +69,13 @@ int main() {
                 reverse_goat(trip); 
                 break;
             case 5: 
-                cout <<"Goats have been shuffled.\n";
-                shuffle_goat(trip); 
+                cout <<"Goats list has been cleared.\n";
+                clear_goat(trip); 
                 break;
-            
+            case 6: 
+                cout<<"Goats have been shuffled.\n"; 
+                shuffle_goat(trip);
+                break;
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -155,6 +159,11 @@ void reverse_goat(list<Goat> &trip)
     display_trip(trip); 
 }
 
+void clear_goat(list<Goat> &trip)
+{
+    trip.clear(); 
+}
+
 void shuffle_goat(list<Goat> &trip)
 {
     vector<Goat> temp;          //couldnt shuffle a list so copied list into vector
@@ -164,11 +173,12 @@ void shuffle_goat(list<Goat> &trip)
     }
     shuffle(temp.begin(), temp.end(), default_random_engine()); 
 
- // shuffle(trip.begin(), trip.end(), default_random_engine());
+    clear_goat(trip);
+    
     for(const auto& tmp : temp)
     {
-        trip.
+        trip.push_back(tmp);
     }
-  display_trip(trip); 
+    display_trip(trip); 
    
 }
