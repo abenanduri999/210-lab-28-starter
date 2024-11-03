@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <list>
 #include <vector>
+#include <tuple>
 #include <algorithm>
 #include <numeric>
 #include <random>
@@ -20,6 +21,7 @@ void clear_goat(list<Goat> &trip);
 void shuffle_goat(list<Goat> &trip); 
 void sumAge_goat(list<Goat> trip); 
 void merge_goat(list<Goat> &trip);
+void anyOf_goat(list<Goat> trip); 
 int main_menu();
 
 int main() {
@@ -86,6 +88,10 @@ int main() {
                 cout<<"The new merged list is:\n";
                 merge_goat(trip); 
                 break; 
+            case 9: 
+                cout<<"Checking to see if there are goats older than 10 years of age.\n";
+                anyOf_goat(trip); 
+                break;
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -107,7 +113,7 @@ int main_menu() {
     cout << "[6] Shuffle goats\n";
     cout << "[7] Sum of all the ages\n";
     cout << "[8] Merge list with another.\n";
-    cout << "[9] ";
+    cout << "[9] Are any goats older than 10 years?\n";
     cout << "[10] ";
     cout << "[11] ";
     cout << "[12] Quit\n";
@@ -216,4 +222,11 @@ void merge_goat(list<Goat> &trip)
     list<Goat> mergedList(trip.size() + newTrip.size());
     merge(trip.begin(), trip.end(), newTrip.begin(), newTrip.end(), mergedList.begin()); 
     display_trip(mergedList); 
+}
+
+void anyOf_goat(list<Goat> trip)
+{
+    vector<int>temp; 
+    bool age = any_of(trip.begin(), trip.end(), [](int a) {return a > 10;} ); 
+    cout<<(age ? "Yes" : "No")<<endl; 
 }
