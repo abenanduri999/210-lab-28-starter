@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <vector>
 #include <algorithm>
 #include <random>
 #include "Goat.h"
@@ -88,8 +89,8 @@ int main_menu() {
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
     cout << "[4] Reverse goats\n"; 
-    cout << "[5] Shuffle goats\n"; 
-    cout << "[6] ";
+    cout << "[5] Clear goats\n"; 
+    cout << "[6] Shuffle goats\n";
     cout << "[7] ";
     cout << "[8] ";
     cout << "[9] ";
@@ -156,6 +157,18 @@ void reverse_goat(list<Goat> &trip)
 
 void shuffle_goat(list<Goat> &trip)
 {
-  cout<<"HI"<<endl;
+    vector<Goat> temp;          //couldnt shuffle a list so copied list into vector
+    for(const auto& element : trip) //shuffled vector and copied it back to list
+    {
+        temp.push_back(element); 
+    }
+    shuffle(temp.begin(), temp.end(), default_random_engine()); 
+
+ // shuffle(trip.begin(), trip.end(), default_random_engine());
+    for(const auto& tmp : temp)
+    {
+        trip.
+    }
+  display_trip(trip); 
    
 }
