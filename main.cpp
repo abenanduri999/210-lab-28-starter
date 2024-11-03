@@ -17,6 +17,7 @@ void display_trip(list<Goat> trip);
 void reverse_goat(list<Goat> &trip); 
 void clear_goat(list<Goat> &trip); 
 void shuffle_goat(list<Goat> &trip); 
+void sumAge_goat(list<Goat> trip); 
 int main_menu();
 
 int main() {
@@ -95,7 +96,7 @@ int main_menu() {
     cout << "[4] Reverse goats\n"; 
     cout << "[5] Clear goats\n"; 
     cout << "[6] Shuffle goats\n";
-    cout << "[7] ";
+    cout << "[7] Sum of all the ages\n";
     cout << "[8] ";
     cout << "[9] ";
     cout << "[10] ";
@@ -167,7 +168,7 @@ void clear_goat(list<Goat> &trip)
 void shuffle_goat(list<Goat> &trip)
 {
     vector<Goat> temp;          //couldnt shuffle a list so copied list into vector
-    for(const auto& element : trip) //shuffled vector and copied it back to list
+    for(auto element : trip) //shuffled vector and copied it back to list
     {
         temp.push_back(element); 
     }
@@ -175,10 +176,20 @@ void shuffle_goat(list<Goat> &trip)
 
     clear_goat(trip);
     
-    for(const auto& tmp : temp)
+    for(auto tmp : temp)
     {
         trip.push_back(tmp);
     }
     display_trip(trip); 
    
+}
+
+void sumOf_goat(list<Goat> trip)
+{
+    int sum = 0;
+    for(auto tmp : trip )
+    {
+        sum = sum + tmp.get_age(); 
+    }
+    cout<<"The sum of all the ages is: "<<sum<<endl; 
 }
